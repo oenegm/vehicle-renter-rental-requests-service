@@ -42,7 +42,6 @@ services:
   rental-requests-db:
     image: 'postgres:latest'
     environment:
-      - 'POSTGRES_DB=rental-requests'
       - 'POSTGRES_PASSWORD=password'
       - 'POSTGRES_USER=postgres'
     ports:
@@ -57,8 +56,8 @@ services:
 
   rental-requests-service:
     container_name: rental-requests-service
-    build: ./rental-requests-service
-    image: rental-requests-service:latest
+    build: .
+#    image: rental-requests-service:latest
     depends_on:
       rental-requests-db:
         condition: service_healthy
